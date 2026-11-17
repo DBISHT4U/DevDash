@@ -174,10 +174,8 @@ fn render_sys_info_bar(f: &mut Frame, area: Rect, state: &DashboardState) {
 
 fn render_cpu_panel(f: &mut Frame, area: Rect, state: &DashboardState) {
     let s = &state.sys;
-    let block = widgets::styled_block(
-        &format!("CPU  {:.1}%", s.cpu_usage),
-        widgets::percent_color(s.cpu_usage as f64),
-    );
+    let cpu_title = format!("CPU  {:.1}%", s.cpu_usage);
+    let block = widgets::styled_block(&cpu_title, widgets::percent_color(s.cpu_usage as f64));
 
     let inner = block.inner(area);
     f.render_widget(block, area);
@@ -209,10 +207,8 @@ fn render_cpu_panel(f: &mut Frame, area: Rect, state: &DashboardState) {
 
 fn render_memory_panel(f: &mut Frame, area: Rect, state: &DashboardState) {
     let s = &state.sys;
-    let block = widgets::styled_block(
-        &format!("Memory  {:.1}%", s.mem_percent),
-        widgets::percent_color(s.mem_percent),
-    );
+    let mem_title = format!("Memory  {:.1}%", s.mem_percent);
+    let block = widgets::styled_block(&mem_title, widgets::percent_color(s.mem_percent));
 
     let inner = block.inner(area);
     f.render_widget(block, area);
@@ -273,7 +269,7 @@ fn render_disk_panel(f: &mut Frame, area: Rect, state: &DashboardState) {
     let inner = block.inner(area);
     f.render_widget(block, area);
 
-    let disk_count = state.sys.disks.len().max(1);
+    let _disk_count = state.sys.disks.len().max(1);
     let constraints: Vec<Constraint> = state
         .sys
         .disks
@@ -311,10 +307,8 @@ fn render_disk_panel(f: &mut Frame, area: Rect, state: &DashboardState) {
 }
 
 fn render_processes(f: &mut Frame, area: Rect, state: &DashboardState) {
-    let block = widgets::styled_block(
-        &format!("Top Processes  ({})", state.sys.processes),
-        Color::Red,
-    );
+    let proc_title = format!("Top Processes  ({})", state.sys.processes);
+    let block = widgets::styled_block(&proc_title, Color::Red);
 
     let header = Row::new(vec!["PID", "Name", "CPU %", "Memory"])
         .style(Style::default().fg(Color::Cyan).bold())

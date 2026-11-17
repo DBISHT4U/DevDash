@@ -19,6 +19,10 @@
 
 ---
 
+<div align="center">
+  <img src="demo.gif" alt="DevDash Demo" width="800">
+</div>
+
 ## ✨ Features
 
 - **⚡ System Tab** — CPU usage with sparkline history, RAM/Swap gauges, disk usage, battery status, network I/O, top processes

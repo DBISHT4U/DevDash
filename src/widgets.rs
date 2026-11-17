@@ -11,7 +11,7 @@ pub fn styled_block(title: &str, color: Color) -> Block<'_> {
 }
 
 /// Create a gauge widget for resource usage
-pub fn usage_gauge<'a>(label: &'a str, percent: f64, color: Color) -> Gauge<'a> {
+pub fn usage_gauge<'a>(label: &'a str, percent: f64, _color: Color) -> Gauge<'a> {
     let color = match percent as u64 {
         0..=50 => Color::Green,
         51..=75 => Color::Yellow,
